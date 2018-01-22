@@ -1,0 +1,147 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="initial-scale=1">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Small Caps">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Small Caps</title>
+
+  <style>
+  html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: helvetica;
+  }
+
+  body {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+  }
+
+  header, h1 {
+    font-variant: small-caps;
+  }
+
+  header {
+    padding: 1em;
+    color: #fff;
+    font-size: large;
+    text-shadow: 2px 2px #000;
+  }
+
+  h1 { font-size: medium; }
+
+  textarea {
+    width: 70%;
+  }
+
+  button {
+    width: 50%;
+    margin: 1em auto;
+    padding: 1em;
+    display: block;
+  }
+
+  @media screen and (min-width:640px) {
+    body { width: 50%; }
+  }
+  </style>
+</head>
+<body>
+  <header>SMALL CAPS</header>
+  <main>
+    <h1>Input</h1>
+    <textarea id="ta__input" autofocus rows="3"></textarea>
+    <h1>Output</h1>
+    <textarea id="ta__output" rows="3"></textarea>
+    <button id="btn__select-all" type="button">
+      Click to select all
+    </button>
+  </main>
+  <hr>
+  <footer>
+    <em>
+      Available for
+      <a href="https://en.wikipedia.org/wiki/ISO_basic_Latin_alphabet">ISO basic Latin alphabet</a>.
+      Created by <a href="https://github.com/anqurvanillapy">AnqurVanillapy</a>.
+    </em>
+  </footer>
+<script>
+(function () {
+
+const smallcaps = [
+  7424,
+  665,
+  7428,
+  7429,
+  7431,
+  42800,
+  610,
+  668,
+  618,
+  7434,
+  7435,
+  671,
+  7437,
+  628,
+  7439,
+  7448,
+  491,
+  640,
+  42801,
+  7451,
+  7452,
+  7456,
+  7457,
+  120,
+  655,
+  7458
+]
+
+const conv = s => {
+  let code
+  let i = 0
+  let arr = s.split('')
+
+  while (!isNaN( code = s.charCodeAt(i))) {
+    if ((code >= 65 && code <= 90) || (code >= 97 && code <= 122)) {
+      arr[i] = String.fromCharCode(smallcaps[code % 32 - 1])
+    }
+    ++i
+  }
+
+  return arr.join('')
+}
+
+const [
+  $input,
+  $output,
+  $select
+] = [
+  'ta__input',
+  'ta__output',
+  'btn__select-all',
+].map(id => document.getElementById(id))
+
+$input.addEventListener('input', () => {
+  $output.value = conv($input.value)
+})
+
+$select.addEventListener('click', () => {
+  $output.select()
+})
+
+})()
+</script>
+</body>
+</html>

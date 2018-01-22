@@ -1,0 +1,22 @@
+{
+  "name": "smallcaps",
+  "version": "1.0.0",
+  "description": "Small caps converter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anqurvanillapy/smallcaps.git"
+  },
+  "keywords": [
+    "smallcaps"
+  ],
+  "author": "AnqurVanillapy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anqurvanillapy/smallcaps/issues"
+  },
+  "homepage": "https://github.com/anqurvanillapy/smallcaps#readme"
+}
